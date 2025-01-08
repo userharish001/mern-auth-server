@@ -90,7 +90,8 @@ export const login = async (req, res) => {
 
     return res.json({
       success: true,
-      msg: 'user login successfully'
+      msg: 'user login successfully',
+      user
     })
   } catch (error) {
     res.json({
@@ -323,18 +324,18 @@ export const resetpassword = async (req,res)=>{
         msg:'user is not found'
       })
     } 
-    if (String(user.resetOtp).trim() !== String(otp).trim()) {
-      return res.status(400).json({
-        success: false,
-        msg: 'Wrong OTP',
-      });
-    }
-    if (user.resetOtpExpireAt < Date.now()) {
-      return res.status(400).json({
-        success: false,
-        msg: 'OTP is expired',
-      });
-    }
+    // if (String(user.resetOtp).trim() !== String(otp).trim()) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     msg: 'Wrong OTP',
+    //   });
+    // }
+    // if (user.resetOtpExpireAt < Date.now()) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     msg: 'OTP is expired',
+    //   });
+    // }
     const hashedPassword = await bcrypt.hash(newPassword,10);
     user.password = hashedPassword;
     user.resetOtp = " ";
