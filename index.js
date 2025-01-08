@@ -10,10 +10,13 @@ const app = express();
 dotenv.config();
 connectDB();
 
-const allowedOrigins = ['http://localhost:5173'];
+
+const allowedOrigins = ['https://mern-auth-server-xifg.onrender.com'];
 
 app.use(express.json());
+
 app.use(cookieParser());
+
 app.use(cors({ 
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
