@@ -11,12 +11,10 @@ dotenv.config();
 connectDB();
 
 
-const allowedOrigins = ['https://mern-auth-server-xifg.onrender.com'];
+const allowedOrigins = ['https://mern-auth-client-j8z6.onrender.com'];
 
 app.use(express.json());
-
 app.use(cookieParser());
-
 app.use(cors({ 
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
