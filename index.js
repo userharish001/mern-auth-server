@@ -11,7 +11,7 @@ dotenv.config();
 connectDB();
 
 
-const allowedOrigins = ['https://mern-auth-client-j8z6.onrender.com'];
+const allowedOrigins = ['http://localhost:5173'];
 
 app.use(express.json());
 app.use(cookieParser());
